@@ -1,2 +1,2 @@
 # EU_GFD_Data
-Data used in 'What is the relationship between plant functional diversity and abiotic heterogeneity? A plot-based, Pan-European analysis.' 
+Data used in 'What is the relationship between plant trait diversity and geodiversity? A plot-based, Pan-European analysis.' 
