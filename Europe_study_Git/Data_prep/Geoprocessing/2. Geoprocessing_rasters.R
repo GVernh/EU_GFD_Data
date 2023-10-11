@@ -1,10 +1,6 @@
 # Digital elevation data accessed: https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1
 # SoilGrids data accessed using rGdal: SoilGrids_rgdal_download.R 
 
-#TO DO
-# Round the data here (before you rounded to 3 but here try 4 on Rao. use: signif(x, digits = 4))
-# Just have the projected raster folder be geodiversity and climate folders. Dont need a seperate folder for each.
-
 # ----------------- Packages ----------------------------
 if("terra" %in% rownames(installed.packages()) == FALSE) {install.packages("terra")}
 library(terra)
