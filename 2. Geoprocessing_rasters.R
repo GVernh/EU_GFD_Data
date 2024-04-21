@@ -46,20 +46,20 @@ foreach(i = seq_along(1:length(soil_0_5)), .packages= "terra") %dopar% {
   soil_250m = round(soil_250m, digits = 0)
   x = names(soil_stack[[1]])
   names(soil_250m) = x
-  path= paste0("./Processed_rasters/", substr(x, 1, 6) , "_250m.tif")
+  path= paste0("./Processed_rasters/Terrain_soil/", substr(x, 1, 6) , "_250m.tif")
   terra::writeRaster(x = soil_250m, filename = path, gdal='TFW=YES', overwrite =T)
 }
 
 # Nit and Soc are 4 digit rasters so we need to reduce to 3 to reduce computational requirements of rasterdiv
-nit = terra::rast("./Processed_rasters/EU_nit_250m.tif")
-soc = terra::rast("./Processed_rasters/EU_soc_250m.tif")
+nit = terra::rast("./Processed_rasters/Terrain_soil/EU_nit_250m.tif")
+soc = terra::rast("./Processed_rasters/Terrain_soil/EU_soc_250m.tif")
 nit = nit/10
 nit = round(nit, digits = 0)
 soc = soc/10
 soc = round(soc, digits = 0)
-terra::writeRaster(x = soc, filename = "./Processed_rasters/EU_soc_250m.tif", 
+terra::writeRaster(x = soc, filename = "./Processed_rasters/Terrain_soil/EU_soc_250m.tif", 
                    gdal='TFW=YES', overwrite =T)
-terra::writeRaster(x = nit, filename = "./Processed_rasters/EU_nit_250m.tif", 
+terra::writeRaster(x = nit, filename = "./Processed_rasters/Terrain_soil/EU_nit_250m.tif", 
                    gdal='TFW=YES', overwrite =T)
 
 # ----------------- REPROJ DEM -------------------
@@ -71,7 +71,7 @@ DEM_250m = terra::project(DEM_250m, Proj_rast, method = "bilinear", threads = T)
 DEM_250m = DEM_250m/10
 DEM_250m = round(DEM_250m, digits = 0)
 names(DEM_250m) = "DEM_250"
-terra::writeRaster(x = DEM_250m, filename = "./Processed_rasters/DEM_250m.tif", gdal = "TFW=YES", 
+terra::writeRaster(x = DEM_250m, filename = "./Processed_rasters/Terrain_soil/DEM_250m.tif", gdal = "TFW=YES", 
                    overwrite = T)
 rm(DEM, DEM_250m)
 
@@ -90,6 +90,6 @@ TWI_250m = terra::aggregate(TWI, fact = 2, fun  = "mean")
 TWI_250m = terra::project(TWI_250m, Proj_rast, method = "bilinear", threads = T)
 TWI_250m = round(TWI_250m, digits = 1)
 names(TWI_250m) = "TWI_250"
-terra::writeRaster(x = TWI_250m, filename ="./Processed_rasters/TWI_250m.tif", 
+terra::writeRaster(x = TWI_250m, filename ="./Processed_rasters/Terrain_soil/TWI_250m.tif", 
                    gdal = "TFW=YES", overwrite = T)
 rm(TWI, TWI_250m)
