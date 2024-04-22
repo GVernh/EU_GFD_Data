@@ -20,7 +20,6 @@ rm(list=ls())
 # ---------------- Aggregate geodiversity --------------------------
 # NOTE: The soil layers were not renamed and so have 0_5 in there raster names but it is actually 0_15 as they were 
   # averaged across depths.
-setwd("D:/Europe_study_data/Analysis/250M_5X5_HET/")
 
 geo_rasters = list.files(path = "./Processed_rasters/Geodiversity/",
                         pattern = ".tif$",

@@ -136,3 +136,4 @@ for (i in  1:length(data_list)) {
   write.csv(SPlot_Coords, paste0(filenames[i],"Coords_FD", tags[i],".csv"), row.names=FALSE)
   write.csv(Trait_hom, paste0(filenames[i],"Selected_traits_FD", tags[i],".csv"), row.names=FALSE)
 }
+setwd("../../../")
