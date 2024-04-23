@@ -26,9 +26,11 @@ rm(list=ls())
 dir = c("./100m_data/", "./400m_data/", "./1000m_data/", "./All_plot_data/")
 tags = c("_100m", "_400m", "_1000m", "all_plots")
 dir.create("./Analysis/Finalised_rasters/Functional_diversity", 
-           showWarnings = FALSE)
-dir.create("./Figures_Tables/Appendices", 
-           showWarnings = FALSE)
+           showWarnings = T)
+dir.create("./Figures_Tables/", 
+           showWarnings = T)
+dir.create("./Figures_Tables/Appendices/", 
+           showWarnings = T)
 
 setwd("./Analysis/Finalised_rasters/Functional_diversity/")
 for  (i in 1:length(dir)){
