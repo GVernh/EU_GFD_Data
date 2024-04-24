@@ -23,9 +23,7 @@ rm(list=ls())
 ################ DATA ##################
 ########################################
 
-setwd("./Finalised_dataset/Transformed/")
-
-df <- list.files(path = "./",
+df <- list.files(path = "./Finalised_dataset/Transformed/",
                  pattern = ".csv",
                  recursive = F)
 
@@ -148,6 +146,6 @@ for (i in 1:length(df)) {
                                             "water body" = 1,
                                             "wetland" = 1
   )
-  write.csv(x, file = paste0("./", df[[i]]), row.names = F)
+  write.csv(x, file = paste0("./Finalised_dataset/Transformed/", df[[i]]), row.names = F)
   }
 
