@@ -1,0 +1,3 @@
+This ripository includes R scripts needed to process and analyse data included for the manuscript: "_What is the relationship between plant trait diversity and geodiversity? A plot-based, Pan-European analysis._".
+
+PLEASE NOTE: Scripts are numbered in the order to which they were executed. Scripts 1-8 require considerable amount of processing power through high performance computing. raster outputs for these scripts cannot be provided to github due to size. output datasets (.CSV) created post geoprocessing are provided and can be used to run structural question models using scripts entitled: '_11. Finalised_SEM_with_derived_quantities_' & '_12. Spatial_autocorrelation_test_morans_'.
