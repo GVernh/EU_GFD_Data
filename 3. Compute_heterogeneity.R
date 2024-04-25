@@ -32,9 +32,8 @@ rasters = list.files(path = "./Processed_rasters/Terrain_soil/",
 for(i in seq_along(rasters)) {
   print(i)
   rast = raster::raster(rasters[i])
-  rast_round = rast/10
   r1 = rasterdiv::paRao(x = rast_round,area=NULL, field=NULL, window = 5, na.tolerance = 0.6, np=30, 
-                        alpha = 1, simplify = 0,dist_m="euclidean",
+                        alpha = 1, simplify = 3,dist_m="euclidean",
                         cluster.type="SOCK", debugging=FALSE, rasterOut=TRUE, method="classic")
   names(r1$window.5$alpha.1) = names(rast)
   path= paste0("./Processed_rasters/Geodiversity/", names(r1$window.5$alpha.1), ".tif")
