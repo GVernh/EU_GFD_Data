@@ -30,26 +30,89 @@ rm(list=ls())
 
 dir.create("./Analysis/Final_SEM_models/", 
            showWarnings = T)
-setwd("D:/Europe_study_data/R scripts/Final_SEM_models/")
 
 
 #############################################
 ############# MODEL SELECTION ###############
 #############################################
 rm(list=ls())
-source("SEM_model_100.R")
-source("SEM_model_400.R") 
-source("./SEM_model_1000.R")
+source("./Analysis/Final_SEM_models/SEM_model_100.R")
+source("./Analysis/Final_SEM_models/SEM_model_400.R") 
+source("./Analysis/Final_SEM_models/SEM_model_1000.R")
 
 #############################################
-############### RUN MODEL ###################
+############### RUN 100m MODELS #############
 #############################################
 
-SEM = sem(model = model_400_Rich, data = data_400)
-summary(SEM, standardized = T, rsq = T)
+SEM_100 = sem(model = model_100_Rich, data = data_100)
+summary(SEM_100, standardized = T, rsq = T)
 
-lavaan::fitMeasures(SEM, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
-mi = modificationindices(SEM)
+lavaan::fitMeasures(SEM_100, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_100)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_100 = sem(model = model_100_Div, data = data_100)
+summary(SEM_100, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_100, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_100)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_100 = sem(model = model_100_Eve, data = data_100)
+summary(SEM_100, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_100, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_100)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+#############################################
+############### RUN 400m MODELS #############
+#############################################
+
+SEM_400 = sem(model = model_400_Rich, data = data_400)
+summary(SEM_400, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_400, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_400)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_400 = sem(model = model_400_Div, data = data_400)
+summary(SEM_400, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_400, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_400)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_400 = sem(model = model_400_Eve, data = data_400)
+summary(SEM_400, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_400, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_400)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+#############################################
+############### RUN 1000m MODELS ############
+#############################################
+
+SEM_1000 = sem(model = model_1000_Rich, data = data_1000)
+summary(SEM_1000, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_1000, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_1000)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_1000 = sem(model = model_1000_Div, data = data_1000)
+summary(SEM_1000, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_1000, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_1000)
+head(mi[order(mi$mi, decreasing = T),],30)
+
+SEM_1000 = sem(model = model_1000_Eve, data = data_1000)
+summary(SEM_1000, standardized = T, rsq = T)
+
+lavaan::fitMeasures(SEM_1000, c("pvalue", "cfi", "rmsea", "chisq", "ifi", "srmr"))
+mi = modificationindices(SEM_1000)
 head(mi[order(mi$mi, decreasing = T),],30)
 
 #############################################
