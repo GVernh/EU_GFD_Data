@@ -72,11 +72,21 @@ data_1000 = data_1000 %>% dplyr::rename("Trait_diversity" = "F")
 
 
 # CREATE BOXPLOTS
-data(mtcars)
-boxplot(Trait_diversity~Dimension,data=data_100, ylab="Std. value", xlab = "Trait diversity dimension", 
-        col = c("#FF1F5B", "#009ADE", "#FFC61E"))
-boxplot(Trait_diversity~Dimension,data=data_400, ylab="Std. value", xlab = "Trait diversity dimension", 
-        col = c("#FF1F5B", "#009ADE", "#FFC61E"))
-boxplot(Trait_diversity~Dimension,data=data_1000, ylab="Std. value", xlab = "Trait diversity dimension", 
-        col = c("#FF1F5B", "#009ADE", "#FFC61E"))
-        
+png("./Figures_Tables/Appendices/100m_FD_boxplot.png", width = 1000, height = 600)
+boxplot(Trait_diversity~Dimension,data=data_100, ylab = "",xlab = "Trait diversity dimension", 
+        col = c("#FF1F5B", "#009ADE", "#FFC61E"),par(cex.lab=1.8), par(cex.axis=1.5))
+title(ylab="Std. value", line=2.4, cex.lab=1.8)
+dev.off()
+
+png("./Figures_Tables/Appendices/400m_FD_boxplot.png", width = 1000, height = 600)
+boxplot(Trait_diversity~Dimension,data=data_400, ylab = "",xlab = "Trait diversity dimension", 
+        col = c("#FF1F5B", "#009ADE", "#FFC61E"),par(cex.lab=1.8), par(cex.axis=1.5))
+title(ylab="Std. value", line=2.4, cex.lab=1.8)
+dev.off()
+
+png("./Figures_Tables/Appendices/1000m_FD_boxplot.png", width = 1000, height = 600)
+boxplot(Trait_diversity~Dimension,data=data_1000, ylab = "",xlab = "Trait diversity dimension", 
+        col = c("#FF1F5B", "#009ADE", "#FFC61E"),par(cex.lab=1.8), par(cex.axis=1.5))
+title(ylab="Std. value", line=2.4, cex.lab=1.8)
+dev.off()
+
