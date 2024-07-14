@@ -1,5 +1,5 @@
 
-data_1000 = read.csv("D:/Europe_study_data/Analysis/Finalised_dataset/Transformed/Full_dataset_1000m_trans.csv")
+data_1000 = read.csv("./Analysis/Finalised_dataset/Transformed/Full_dataset_1000m_trans.csv")
 
 model_1000_Rich = 
   " # Regressions
